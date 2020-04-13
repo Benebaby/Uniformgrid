@@ -18,7 +18,7 @@ glm::mat4 projectionMatrix = glm::perspective(glm::radians(FOV), (float)width / 
 
 void ScrollCallback(GLFWwindow *window, double xoffset, double yoffset)
 {
-	cam->updateRadius(yoffset);
+	cam->updateRadius(yoffset * 5.0f);
 }
 
 void MouseCallback(GLFWwindow *window, double xpos, double ypos)
@@ -67,7 +67,7 @@ int main(void)
 	GLuint m_projectionMatrixID = glGetUniformLocation(minimalShaderProgram.getProgramID(), "projectionMatrix");
 	GLuint m_colorID = glGetUniformLocation(minimalShaderProgram.getProgramID(), "color");
 
-	Uniformgrid grid = Uniformgrid(glm::vec3(0.0f), glm::vec3(24.f), 0.25f);
+	Uniformgrid grid = Uniformgrid(glm::vec3(0.0f), glm::vec3(24.f), 0.125f);
 
 	const char *phongshaderfiles[2] = {SHADERS_PATH"/UniformGridDemo/phong.vert", SHADERS_PATH"/UniformGridDemo/phong.frag" };
 	ShaderSet phongShaderProgram(VERTEX_SHADER_BIT | FRAGMENT_SHADER_BIT, phongshaderfiles);
@@ -88,7 +88,7 @@ int main(void)
 	t2.intersectVoxel(&grid);
 	Triangle t3 = Triangle(glm::ballRand(10.f), glm::ballRand(10.f), glm::ballRand(10.f));
 	t3.intersectVoxel(&grid);
-	Sphere ball = Sphere(glm::vec3(1.f), 2.f, 50);
+	Sphere ball = Sphere(glm::vec3(0.f), 2.f, 50);
 	ball.intersectVoxel(&grid);
 	Line l = Line(glm::vec3(-9, 9, -9), glm::normalize(glm::vec3(1, -1, 1.2)), 25.455f);
 	l.intersectVoxel(&grid);
@@ -100,7 +100,7 @@ int main(void)
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);  
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glfwSwapInterval(1);
+	glfwSwapInterval(0);
 	while (!glfwWindowShouldClose(window)){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		

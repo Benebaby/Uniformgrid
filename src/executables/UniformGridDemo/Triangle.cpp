@@ -31,17 +31,6 @@ void Triangle::intersectVoxel(Uniformgrid* grid){
     max = glm::ceil(max / grid->m_voxelSize) * grid->m_voxelSize;
     min = glm::floor(min / grid->m_voxelSize) * grid->m_voxelSize;
 
-
-    // max.x =  ceil(max.x / grid->m_voxelSize);
-    // max.y =  ceil(max.y / grid->m_voxelSize);
-    // max.z =  ceil(max.z / grid->m_voxelSize);
-    // min.x = floor(min.x / grid->m_voxelSize);
-    // min.y = floor(min.y / grid->m_voxelSize);
-    // min.z = floor(min.z / grid->m_voxelSize);
-
-    // max *= grid->m_voxelSize;
-    // min *= grid->m_voxelSize;
-
     glm::vec3 indexExtent = grid->m_extents / grid->m_voxelSize;
 
     glm::mat3 Temptriverts;
@@ -79,17 +68,17 @@ int Triangle::planeBoxOverlap(glm::vec3 normal, glm::vec3 vert, glm::vec3 maxbox
   for(q = 0; q <= 2; q++){
     v=vert[q];
     if(normal[q]>0.0f){
-      vmin[q]=-maxbox[q] - v;
-      vmax[q]= maxbox[q] - v;
+        vmin[q]=-maxbox[q] - v;
+        vmax[q]= maxbox[q] - v;
     }else{
-      vmin[q]= maxbox[q] - v;
-      vmax[q]=-maxbox[q] - v;
+        vmin[q]= maxbox[q] - v;
+        vmax[q]=-maxbox[q] - v;
     }
   }
   if(glm::dot(normal,vmin)>0.0f) 
-    return 0;
+        return 0;
   if(glm::dot(normal,vmax)>=0.0f) 
-    return 1;
+        return 1;
   return 0;
 }
 int Triangle::triBoxOverlap(glm::vec3 boxcenter,glm::vec3 boxhalfsize,glm::mat3 triverts)
@@ -108,76 +97,67 @@ int Triangle::triBoxOverlap(glm::vec3 boxcenter,glm::vec3 boxhalfsize,glm::mat3 
     fey = fabsf(e0[1]);
     fez = fabsf(e0[2]);
 
-    //AXISTEST_X01(e0[Z], e0[Y], fez, fey);
-        p0 = e0[2]*v0[1] - e0[1]*v0[2];
-        p2 = e0[2]*v2[1] - e0[1]*v2[2];
-        if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
-        rad = fez * boxhalfsize[1] + fey * boxhalfsize[2];
-        if(min>rad || max<-rad) return 0;
+    p0 = e0[2]*v0[1] - e0[1]*v0[2];
+    p2 = e0[2]*v2[1] - e0[1]*v2[2];
+    if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
+    rad = fez * boxhalfsize[1] + fey * boxhalfsize[2];
+    if(min>rad || max<-rad) return 0;
 
-    //AXISTEST_Y02(e0[Z], e0[X], fez, fex);
-	    p0 = -e0[2]*v0[0] + e0[0]*v0[2];
-	    p2 = -e0[2]*v2[0] + e0[0]*v2[2];
-        if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
-	    rad = fez * boxhalfsize[0] + fex * boxhalfsize[2];
-	    if(min>rad || max<-rad) return 0;
+	p0 = -e0[2]*v0[0] + e0[0]*v0[2];
+	p2 = -e0[2]*v2[0] + e0[0]*v2[2];
+    if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
+	rad = fez * boxhalfsize[0] + fex * boxhalfsize[2];
+	if(min>rad || max<-rad) return 0;
 
-    //AXISTEST_Z12(e0[Y], e0[X], fey, fex);
-	    p1 = e0[1]*v1[0] - e0[0]*v1[1];
-	    p2 = e0[1]*v2[0] - e0[0]*v2[1];
-        if(p2<p1) {min=p2; max=p1;} else {min=p1; max=p2;}
-	    rad = fey * boxhalfsize[0] + fex * boxhalfsize[1];
-	    if(min>rad || max<-rad) return 0;
+	p1 = e0[1]*v1[0] - e0[0]*v1[1];
+	p2 = e0[1]*v2[0] - e0[0]*v2[1];
+    if(p2<p1) {min=p2; max=p1;} else {min=p1; max=p2;}
+	rad = fey * boxhalfsize[0] + fex * boxhalfsize[1];
+	if(min>rad || max<-rad) return 0;
 
     fex = fabsf(e1[0]);
     fey = fabsf(e1[1]);
     fez = fabsf(e1[2]);
 
-    //AXISTEST_X01(e1[Z], e1[Y], fez, fey);
-        p0 = e1[2]*v0[1] - e1[1]*v0[2];
-        p2 = e1[2]*v2[1] - e1[1]*v2[2];
-        if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
-        rad = fez * boxhalfsize[1] + fey * boxhalfsize[2];
-        if(min>rad || max<-rad) return 0;
+    p0 = e1[2]*v0[1] - e1[1]*v0[2];
+    p2 = e1[2]*v2[1] - e1[1]*v2[2];
+    if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
+    rad = fez * boxhalfsize[1] + fey * boxhalfsize[2];
+    if(min>rad || max<-rad) return 0;
 
-    //AXISTEST_Y02(e1[Z], e1[X], fez, fex);
-        p0 = -e1[2]*v0[0] + e1[0]*v0[2];
-        p2 = -e1[2]*v2[0] + e1[0]*v2[2];
-        if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
-        rad = fez * boxhalfsize[0] + fex * boxhalfsize[2];
-        if(min>rad || max<-rad) return 0;
+    p0 = -e1[2]*v0[0] + e1[0]*v0[2];
+    p2 = -e1[2]*v2[0] + e1[0]*v2[2];
+    if(p0<p2) {min=p0; max=p2;} else {min=p2; max=p0;}
+    rad = fez * boxhalfsize[0] + fex * boxhalfsize[2];
+    if(min>rad || max<-rad) return 0;
 
-    //AXISTEST_Z0(e1[Y], e1[X], fey, fex);
-        p0 = e1[1]*v0[0] - e1[0]*v0[1];
-        p1 = e1[1]*v1[0] - e1[0]*v1[1];
-        if(p0<p1) {min=p0; max=p1;} else {min=p1; max=p0;}
-        rad = fey * boxhalfsize[0] + fex * boxhalfsize[1];
-        if(min>rad || max<-rad) return 0;
+    p0 = e1[1]*v0[0] - e1[0]*v0[1];
+    p1 = e1[1]*v1[0] - e1[0]*v1[1];
+    if(p0<p1) {min=p0; max=p1;} else {min=p1; max=p0;}
+    rad = fey * boxhalfsize[0] + fex * boxhalfsize[1];
+    if(min>rad || max<-rad) return 0;
 
     fex = fabsf(e2[0]);
     fey = fabsf(e2[1]);
     fez = fabsf(e2[2]);
 
-    //AXISTEST_X2(e2[Z], e2[Y], fez, fey);
-        p0 = e2[2]*v0[1] - e2[1]*v0[2];
-        p1 = e2[2]*v1[1] - e2[1]*v1[2];
-        if(p0<p1) {min=p0; max=p1;} else {min=p1; max=p0;}
-        rad = fez * boxhalfsize[1] + fey * boxhalfsize[2];
-        if(min>rad || max<-rad) return 0;
+    p0 = e2[2]*v0[1] - e2[1]*v0[2];
+    p1 = e2[2]*v1[1] - e2[1]*v1[2];
+    if(p0<p1) {min=p0; max=p1;} else {min=p1; max=p0;}
+    rad = fez * boxhalfsize[1] + fey * boxhalfsize[2];
+    if(min>rad || max<-rad) return 0;
 
-    //AXISTEST_Y1(e2[Z], e2[X], fez, fex);
-        p0 = -e2[2]*v0[0] + e2[0]*v0[2];
-        p1 = -e2[2]*v1[0] + e2[0]*v1[2];
-        if(p0<p1) {min=p0; max=p1;} else {min=p1; max=p0;}
-        rad = fez * boxhalfsize[0] + fex * boxhalfsize[2];
-        if(min>rad || max<-rad) return 0;
+    p0 = -e2[2]*v0[0] + e2[0]*v0[2];
+    p1 = -e2[2]*v1[0] + e2[0]*v1[2];
+    if(p0<p1) {min=p0; max=p1;} else {min=p1; max=p0;}
+    rad = fez * boxhalfsize[0] + fex * boxhalfsize[2];
+    if(min>rad || max<-rad) return 0;
 
-    //AXISTEST_Z12(e2[Y], e2[X], fey, fex);
-        p1 = e2[1]*v1[0] - e2[0]*v1[1];
-        p2 = e2[1]*v2[0] - e2[0]*v2[1];
-        if(p2<p1) {min=p2; max=p1;} else {min=p1; max=p2;}
-        rad = fey * boxhalfsize[0] + fex * boxhalfsize[1];
-        if(min>rad || max<-rad) return 0;
+    p1 = e2[1]*v1[0] - e2[0]*v1[1];
+    p2 = e2[1]*v2[0] - e2[0]*v2[1];
+    if(p2<p1) {min=p2; max=p1;} else {min=p1; max=p2;}
+    rad = fey * boxhalfsize[0] + fex * boxhalfsize[1];
+    if(min>rad || max<-rad) return 0;
 
     findMinMax(v0[0],v1[0],v2[0],min,max);
     if(min>boxhalfsize[0] || max<-boxhalfsize[0]) return 0;
