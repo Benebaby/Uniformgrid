@@ -1,0 +1,76 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"shaders/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			}
+		]
+	},
+	"id" : "SHADERS::@8132085bf3b90c3252db",
+	"name" : "SHADERS",
+	"paths" : 
+	{
+		"build" : "shaders",
+		"source" : "shaders"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Vertex-Shaders",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"name" : "Fragment-Shaders",
+			"sourceIndexes" : 
+			[
+				2,
+				3
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "shaders/UniformGridDemo/minimal.vert",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "shaders/UniformGridDemo/phong.vert",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "shaders/UniformGridDemo/minimal.frag",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "shaders/UniformGridDemo/phong.frag",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

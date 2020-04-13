@@ -1,0 +1,61 @@
+[
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Folibraries\\Tools\\CMakeFiles\\Tools.dir\\src\\CompatibilityTools.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\libraries\\Tools\\src\\CompatibilityTools.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/libraries/Tools/src/CompatibilityTools.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Folibraries\\Tools\\CMakeFiles\\Tools.dir\\src\\ShaderSet.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\libraries\\Tools\\src\\ShaderSet.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/libraries/Tools/src/ShaderSet.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\stb\\include -I..\\libraries\\Tools\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Folibraries\\stb\\CMakeFiles\\stb.dir\\src\\stb_image.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\libraries\\stb\\src\\stb_image.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/libraries/stb/src/stb_image.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\Camera.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\Camera.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/Camera.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\Cube.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\Cube.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/Cube.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\Line.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\Line.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/Line.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\Sphere.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/Sphere.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\Triangle.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/Triangle.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\Uniformgrid.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\Uniformgrid.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/Uniformgrid.cpp"
+},
+
+{
+  "directory": "C:/dev/CG/UniformGridDemo/src/build",
+  "command": "C:\\PROGRA~2\\MICROS~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1424~1.283\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLEW_NO_GLU -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DGLM_FORCE_RADIANS -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED -DRESOURCES_PATH=\\\"C:/dev/CG/UniformGridDemo/src/../resources\\\" -DSHADERS_PATH=\\\"C:/dev/CG/UniformGridDemo/src/shaders\\\" -D_CRT_SECURE_NO_WARNINGS -I..\\libraries -I..\\libraries\\Tools\\include -I..\\libraries\\stb\\include -IC:\\dev\\Dependencies_CVK2\\glfw\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\assimp\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\glm\\include -IC:\\dev\\Dependencies_CVK2\\glew\\msvc141\\include -IC:\\dev\\Dependencies_CVK2\\OpenGL\\include  /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG   /Foexecutables\\UniformGridDemo\\CMakeFiles\\UniformGridDemo.dir\\main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\dev\\CG\\UniformGridDemo\\src\\executables\\UniformGridDemo\\main.cpp",
+  "file": "C:/dev/CG/UniformGridDemo/src/executables/UniformGridDemo/main.cpp"
+}
+]
