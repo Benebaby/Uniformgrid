@@ -15,6 +15,9 @@ private:
     GLuint VertexBuffer[1];
 	glm::vec3 m_A,m_B,m_C;
     std::vector<glm::vec3> points;
+    
+    std::vector<glm::ivec2> intersectedVoxel; 
+
     void findMinMax(float x0, float x1, float x2, float &min,float &max);
     int planeBoxOverlap(glm::vec3 normal, glm::vec3 vert, glm::vec3 maxbox);
     int triBoxOverlap(glm::vec3 boxcenter,glm::vec3 boxhalfsize,glm::mat3 triverts);

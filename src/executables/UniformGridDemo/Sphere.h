@@ -12,6 +12,8 @@ public:
     std::vector<glm::vec3> m_colors;
     std::vector<GLuint> m_index;
 
+    std::vector<glm::ivec2> intersectedVoxel; 
+
     GLuint m_VertexArray;
     GLuint m_VertexBuffer[3];
     GLuint m_IndexBuffer;

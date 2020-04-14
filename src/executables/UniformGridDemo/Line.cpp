@@ -6,6 +6,7 @@ Line::Line(glm::vec3 pos, glm::vec3 dir, float length){
     m_ray_pos = pos;
     points.push_back(m_ray_pos);
     points.push_back(m_ray_pos + m_ray_length * m_ray_dir);
+    intersectedVoxel.resize(0);
 
     glGenVertexArrays(1, &VertexArray);
     glBindVertexArray(VertexArray);
@@ -24,6 +25,11 @@ void Line::render(){
     glDrawArrays(GL_LINES, 0, (GLint) points.size() * 3);
 }
 void Line::intersectVoxel(Uniformgrid* grid){
+
+    for(int i = 0; i < intersectedVoxel.size(); i++){
+		grid->removeCandidate(intersectedVoxel[i].x, intersectedVoxel[i].y); 
+	}
+
     double m_InvVoxelSize = 1.0f / grid->m_voxelSize;
     glm::vec3 direction = m_ray_dir;
     glm::vec3 origin = m_ray_pos;
@@ -37,8 +43,6 @@ void Line::intersectVoxel(Uniformgrid* grid){
     index.z = glm::min((unsigned int)(glm::max(posVec.z, 0.0f)), (unsigned int) (m_maxIndex.z));
     
     glm::ivec3 indexExtent = grid->m_extents / grid->m_voxelSize;
-    unsigned int OneDIndex = static_cast<unsigned int>(index.z*indexExtent.x*indexExtent.y + index.y * indexExtent.x + index.x);
-    grid->objects[OneDIndex].push_back(2);
 
     glm::vec3 tnext;
     if (step.x < 0)
@@ -58,11 +62,11 @@ void Line::intersectVoxel(Uniformgrid* grid){
     else
         tnext.z = (1 - posVec.z + index.z) * delta.z;
 
+    unsigned int OneDIndex = static_cast<unsigned int>(index.z*indexExtent.x*indexExtent.y + index.y * indexExtent.x + index.x);
+    intersectedVoxel.push_back(grid->setCandidate(OneDIndex, 2));
    
 
     for(;;){
-        OneDIndex = static_cast<unsigned int>(index.z*indexExtent.x*indexExtent.y + index.y * indexExtent.x + index.x);
-        
         if (tnext.x < tnext.y){
             if (tnext.x < tnext.z) {
                 index.x += step.x;
@@ -86,10 +90,13 @@ void Line::intersectVoxel(Uniformgrid* grid){
                 tnext.z += delta.z;
             }
         }
-        grid->objects[OneDIndex].push_back(2);
-        for(int i = 0; i < grid->objects[OneDIndex].size(); i++){
-            if(grid->objects[OneDIndex][i] == 1 || grid->objects[OneDIndex][i] == 4){
-                grid->objects[OneDIndex].push_back(3);
+        OneDIndex = static_cast<unsigned int>(index.z*indexExtent.x*indexExtent.y + index.y * indexExtent.x + index.x);
+
+        intersectedVoxel.push_back(grid->setCandidate(OneDIndex, 2));
+
+        for(int i = 0; i < 100; i++){
+            if(grid->objects[OneDIndex][i] != 0 && grid->objects[OneDIndex][i] != 2){
+                intersectedVoxel.push_back(grid->setCandidate(OneDIndex, 4));
                 break;
             }
         }

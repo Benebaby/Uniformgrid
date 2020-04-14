@@ -21,13 +21,13 @@ Triangle::Triangle(glm::vec3 A, glm::vec3 B, glm::vec3 C){
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 void Triangle::intersectVoxel(Uniformgrid* grid){
-    glm::vec3 max, min;
-    max.x = glm::max(glm::max(m_A.x, m_B.x), m_C.x);
-    max.y = glm::max(glm::max(m_A.y, m_B.y), m_C.y);
-    max.z = glm::max(glm::max(m_A.z, m_B.z), m_C.z);
-    min.x = glm::min(glm::min(m_A.x, m_B.x), m_C.x);
-    min.y = glm::min(glm::min(m_A.y, m_B.y), m_C.y);
-    min.z = glm::min(glm::min(m_A.z, m_B.z), m_C.z);
+
+    for(int i = 0; i < intersectedVoxel.size(); i++){
+		grid->removeCandidate(intersectedVoxel[i].x, intersectedVoxel[i].y); 
+	}
+    
+    glm::vec3 max = glm::max(glm::max(m_A, m_B), m_C);
+    glm::vec3 min = glm::min(glm::min(m_A, m_B), m_C);
     max = glm::ceil(max / grid->m_voxelSize) * grid->m_voxelSize;
     min = glm::floor(min / grid->m_voxelSize) * grid->m_voxelSize;
 
@@ -42,10 +42,11 @@ void Triangle::intersectVoxel(Uniformgrid* grid){
             for(float z = min.z; z <= max.z; z+= grid->m_voxelSize)
                 {
                     glm::vec3 temp = glm::vec3(x,y,z) + glm::vec3(0.5f * grid->m_voxelSize);
-                    glm::ivec3 index = glm::ivec3((int)((temp.x - grid->m_min.x)/grid->m_voxelSize), (int)((temp.y - grid->m_min.y)/grid->m_voxelSize), (int)((temp.z - grid->m_min.z)/grid->m_voxelSize));
+                    glm::ivec3 index = glm::ivec3((temp - grid->m_min) / grid->m_voxelSize);
                     glm::vec3 halfSize(grid->m_voxelSize / 2.0f);
-                    if(triBoxOverlap(temp, halfSize, Temptriverts) == 1){
-                        grid->objects[static_cast<unsigned int>(index.z * indexExtent.x * indexExtent.y + index.y * indexExtent.x + index.x)].push_back(1);   
+                    if(triBoxOverlap(temp, halfSize, Temptriverts)){
+                        int objectsIndex = static_cast<unsigned int>(index.z * indexExtent.x * indexExtent.y + index.y * indexExtent.x + index.x);
+                        intersectedVoxel.push_back(grid->setCandidate(objectsIndex, 1));
                     }
                 }               
 }

@@ -101,6 +101,8 @@ int main(void)
 	glEnable(GL_BLEND);  
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glfwSwapInterval(0);
+	double start = glfwGetTime();
+	bool isDone = false;
 	while (!glfwWindowShouldClose(window)){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
@@ -134,8 +136,19 @@ int main(void)
 		glUniform3fv(specularID, 1, glm::value_ptr(mat_specular));
 		glUniform1f(shininessID, mat_shininess);
 		glUniform3fv(diffuseID, 1, glm::value_ptr(mat_diffuse));
+		if(!isDone && glfwGetTime() - start > 20.0)
+		{
+			isDone = true;
+			ball.m_center = glm::vec3(2.0f);
+			ball.intersectVoxel(&grid);
+			l.intersectVoxel(&grid);
+			l1.intersectVoxel(&grid);
+			grid.createCandidates();
+		}
+
 		grid.renderCandidates();
-		ball.render();
+		if(!isDone)
+			ball.render();
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

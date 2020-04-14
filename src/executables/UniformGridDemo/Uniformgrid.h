@@ -8,6 +8,8 @@ class Uniformgrid
 public:
 	Uniformgrid(glm::vec3 center, glm::vec3 extents, float voxelSize);
 	void render();
+	glm::ivec2 setCandidate(int i, int x);
+	void removeCandidate(int i, int pos);
 	void createCandidates();
 	void renderCandidates();
     glm::vec3 m_center;

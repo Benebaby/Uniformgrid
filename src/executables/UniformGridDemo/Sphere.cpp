@@ -5,6 +5,7 @@ Sphere::Sphere(glm::vec3 center, float radius, int resolution)
 	m_radius = radius;
 	m_resolution = resolution;
 	m_center = center;
+	intersectedVoxel.resize(0);
 	Sphere::create( m_center,  m_radius, m_resolution);
 }
 
@@ -81,6 +82,11 @@ void Sphere::create(glm::vec3 center, float radius, int resolution)
 }
 
 void Sphere::intersectVoxel(Uniformgrid* grid){
+	//remove old intersects
+	for(int i = 0; i < intersectedVoxel.size(); i++){
+		grid->removeCandidate(intersectedVoxel[i].x, intersectedVoxel[i].y);
+	}
+
 	glm::vec3 max = m_center + glm::vec3(m_radius);
 	glm::vec3 min = m_center - glm::vec3(m_radius);
 	max = glm::ceil(max / grid->m_voxelSize) * grid->m_voxelSize;
@@ -93,11 +99,12 @@ void Sphere::intersectVoxel(Uniformgrid* grid){
             for(float z = min.z; z <= max.z; z+= grid->m_voxelSize)
                 {
                     glm::vec3 temp = glm::vec3(x,y,z) + glm::vec3(0.5f * grid->m_voxelSize);
+                    glm::ivec3 index = glm::ivec3((temp - grid->m_min) / grid->m_voxelSize);
 					glm::vec3 C1 = glm::vec3(x,y,z);
 					glm::vec3 C2 = glm::vec3(x,y,z) + glm::vec3(grid->m_voxelSize);
-                    glm::ivec3 index = glm::ivec3((int)((temp.x - grid->m_min.x)/grid->m_voxelSize), (int)((temp.y - grid->m_min.y)/grid->m_voxelSize), (int)((temp.z - grid->m_min.z)/grid->m_voxelSize));
                     if(Sphere::sphereBoxOverlap(C1, C2, m_center, m_radius)){
-						grid->objects[static_cast<unsigned int>(index.z * indexExtent.x * indexExtent.y + index.y * indexExtent.x + index.x)].push_back(4);   
+						int objectsIndex = static_cast<unsigned int>(index.z * indexExtent.x * indexExtent.y + index.y * indexExtent.x + index.x);
+						intersectedVoxel.push_back(grid->setCandidate(objectsIndex, 3));
                     }
                 }               
 }

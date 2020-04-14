@@ -7,7 +7,7 @@ Uniformgrid::Uniformgrid(glm::vec3 center, glm::vec3 extents, float voxelSize)
     m_min = center - m_extents / 2.0f;
     m_max = center + m_extents / 2.0f;
     m_voxelSize = voxelSize;
-    objects.resize(static_cast<int> ((extents.x / m_voxelSize) * (extents.y / m_voxelSize) * (extents.z / m_voxelSize)));
+    objects.resize(static_cast<int> ((extents.x / m_voxelSize) * (extents.y / m_voxelSize) * (extents.z / m_voxelSize)), std::vector<int>(100, 0));
 
     for (float x = 0; x <= extents.x; x += m_voxelSize)
     {
@@ -65,21 +65,43 @@ void Uniformgrid::render()
     glDrawArrays(GL_LINES, 0, (GLint)points.size());
 }
 
+glm::ivec2 Uniformgrid::setCandidate(int i, int x){
+    for (unsigned int k = 0; k < 100; k++)
+    {
+        if(objects[i][k] == 0){
+            objects[i][k] = x;
+			return glm::ivec2(i, k);
+        }
+    }   
+}
+void Uniformgrid::removeCandidate(int i, int pos){
+    objects[i][pos] = 0;
+}
+
 void Uniformgrid::createCandidates()
 {
-    
+    candidates.resize(0);
     glm::vec3 indexExtent = m_extents / m_voxelSize;
-    for(int i = 0; i < objects.size(); i++){
-        if(objects[i].size() > 0){
+    bool containsPrimitiv = false;
+    for(int i = 0; i < objects.size(); i++)
+    {
+        for(int k = 0; k < 100; k++)
+        {
+            objects[i][k] != 0 ? containsPrimitiv = true : containsPrimitiv = false;
+            break;
+        }
+        if(containsPrimitiv)
+        {
             glm::vec3 color = glm::vec3(0.0f);
-            for(int j = 0; j < objects[i].size(); j++){
+            for(int j = 0; j < 100; j++)
+            {
                 if(objects[i][j] == 1)
                     color = glm::vec3(0.0f, 1.0f, 0.0f);
                 if(objects[i][j] == 2)
                     color = glm::vec3(0.0f, 0.0f, 1.0f);
-                if(objects[i][j] == 4)
-                    color = glm::vec3(1.0f, 0.0f, 1.0f);
                 if(objects[i][j] == 3)
+                    color = glm::vec3(1.0f, 0.0f, 1.0f);
+                if(objects[i][j] == 4)
                     color = glm::vec3(1.0f, 0.0f, 0.0f);
             }
             glm::vec3 tempIndex;

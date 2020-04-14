@@ -12,6 +12,7 @@ private:
     GLuint VertexArray;
     GLuint VertexBuffer[1];
     std::vector<glm::vec3> points;
+    std::vector<glm::ivec2> intersectedVoxel;
     glm::vec3 m_ray_pos;
     glm::vec3 m_ray_dir;
     float m_ray_length;
