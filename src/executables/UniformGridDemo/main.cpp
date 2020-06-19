@@ -67,7 +67,7 @@ int main(void)
 	GLuint m_projectionMatrixID = glGetUniformLocation(minimalShaderProgram.getProgramID(), "projectionMatrix");
 	GLuint m_colorID = glGetUniformLocation(minimalShaderProgram.getProgramID(), "color");
 
-	Uniformgrid grid = Uniformgrid(glm::vec3(0.0f), glm::vec3(24.f), 0.125f);
+	Uniformgrid grid = Uniformgrid(glm::vec3(0.0f), glm::vec3(24.f), 1.0f);
 
 	const char *phongshaderfiles[2] = {SHADERS_PATH"/UniformGridDemo/phong.vert", SHADERS_PATH"/UniformGridDemo/phong.frag" };
 	ShaderSet phongShaderProgram(VERTEX_SHADER_BIT | FRAGMENT_SHADER_BIT, phongshaderfiles);
@@ -103,8 +103,33 @@ int main(void)
 	glfwSwapInterval(0);
 	double start = glfwGetTime();
 	bool isDone = false;
+	bool renderBoxes = false;
+	float gridVoxel = 1.0f;
 	while (!glfwWindowShouldClose(window)){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		{
+			gridVoxel /= 2.0f;
+			grid = Uniformgrid(glm::vec3(0.0f), glm::vec3(24.f), gridVoxel);
+			t.intersectVoxel(&grid);
+			t2.intersectVoxel(&grid);
+			t3.intersectVoxel(&grid);
+			ball.intersectVoxel(&grid);
+			l.intersectVoxel(&grid);
+			l1.intersectVoxel(&grid);
+			grid.createCandidates();
+		}
+		if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS){
+			isDone = true;
+			ball.m_center = glm::vec3(2.0f);
+			ball.intersectVoxel(&grid);
+			l.intersectVoxel(&grid);
+			l1.intersectVoxel(&grid);
+			grid.createCandidates();
+		}
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
+			renderBoxes = true;
+		}
 		
 		minimalShaderProgram.UseProgram();
 		glEnable(GL_BLEND);
@@ -136,17 +161,9 @@ int main(void)
 		glUniform3fv(specularID, 1, glm::value_ptr(mat_specular));
 		glUniform1f(shininessID, mat_shininess);
 		glUniform3fv(diffuseID, 1, glm::value_ptr(mat_diffuse));
-		if(!isDone && glfwGetTime() - start > 20.0)
-		{
-			isDone = true;
-			ball.m_center = glm::vec3(2.0f);
-			ball.intersectVoxel(&grid);
-			l.intersectVoxel(&grid);
-			l1.intersectVoxel(&grid);
-			grid.createCandidates();
-		}
 
-		grid.renderCandidates();
+		if(renderBoxes)
+			grid.renderCandidates();
 		if(!isDone)
 			ball.render();
 
